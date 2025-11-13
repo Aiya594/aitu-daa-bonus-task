@@ -5,11 +5,11 @@ public class Result {
     public int textLength;
     public int patternLength;
     public int matches;
-    public long buildTimeMs;
-    public long searchTimeMs;
+    public double buildTimeMs;
+    public double searchTimeMs;
 
     public Result(String textName, int textLength, int patternLength,
-                  int matches, long buildTimeMs, long searchTimeMs) {
+                  int matches, double buildTimeMs, double searchTimeMs) {
         this.textName = textName;
         this.textLength = textLength;
         this.patternLength = patternLength;

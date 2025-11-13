@@ -11,7 +11,7 @@ public class Metrics {
         try (FileWriter writer = new FileWriter(fileName)) {
             writer.write("TextName,TextLength,PatternLength,Matches,BuildTime(ms),SearchTime(ms)\n");
             for (Result r : results) {
-                writer.write(String.format("%s,%d,%d,%d,%d,%d%n",
+                writer.write(String.format("%s,%d,%d,%d,%.3f,%.3f%n",
                         r.textName, r.textLength, r.patternLength, r.matches,
                         r.buildTimeMs, r.searchTimeMs));
             }
@@ -26,7 +26,7 @@ public class Metrics {
         System.out.println("KMP Algorithm Results:");
         for (Result r : results) {
             System.out.printf(
-                    "%-15s | TextLen=%5d | PatternLen=%3d | Matches=%3d | Build=%5dms | Search=%5dms%n",
+                    "%-15s | TextLen=%5d | PatternLen=%3d | Matches=%3d | Build=%.3fms | Search=%.3fms%n",
                     r.textName, r.textLength, r.patternLength, r.matches,
                     r.buildTimeMs, r.searchTimeMs
             );

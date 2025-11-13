@@ -1,0 +1,4 @@
+TextName,TextLength,PatternLength,Matches,BuildTime(ms),SearchTime(ms)
+Short,10,3,2,0,006,0,001
+Medium,21,5,2,0,002,0,002
+Long,30,7,4,0,001,0,002

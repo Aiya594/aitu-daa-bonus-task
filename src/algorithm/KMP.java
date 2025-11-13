@@ -25,15 +25,15 @@ public class KMP {
 
     //searches for all "pattern" in "text" using lps array for efficiency
     public Result search(String textName, String text, String pattern) {
-        long startBuild = System.currentTimeMillis();
+        long startBuild = System.nanoTime();
         int[] lps = lps(pattern);
-        long endBuild = System.currentTimeMillis();
+        long endBuild = System.nanoTime();
 
         int n = text.length();
         int m = pattern.length();
         int i = 0, j = 0, matches = 0;
 
-        long startSearch = System.currentTimeMillis();
+        long startSearch = System.nanoTime();
 
         //main search loop:
         //invariant -> all indices < i have been processed correctly
@@ -54,7 +54,10 @@ public class KMP {
             }
         }
 
-        long endSearch = System.currentTimeMillis();
+        long endSearch = System.nanoTime();
+
+        double buildTimeMs = (endBuild - startBuild) / 1_000_000.0;
+        double searchTimeMs = (endSearch - startSearch) / 1_000_000.0;
 
         //return results
         return new Result(
@@ -62,8 +65,8 @@ public class KMP {
                 n,
                 m,
                 matches,
-                endBuild - startBuild,
-                endSearch - startSearch
+                buildTimeMs,
+                searchTimeMs
         );
     }
 }
